@@ -1,0 +1,498 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #000; /* Couleur du texte : noir */
+    background-color: #f5f5f5; /* Couleur de fond claire */
+    line-height: 1.6; /* Amélioration de la lisibilité */
+}
+
+/* Header */
+.header {
+    height: 100vh; /* Pleine hauteur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #003366, #001f33); /* Dégradé bleu foncé */
+    color: #fff; /* Texte blanc */
+    text-align: left;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Partie gauche (titre + menu) */
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFC107; /* Jaune */
+    margin-bottom: 20px;
+}
+
+.menu-burger {
+    list-style: none;
+}
+
+.menu-burger li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.menu-burger a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFFFFF; /* Texte blanc */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre icône et texte */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-burger a i {
+    font-size: 20px; /* Taille des icônes */
+    color: #FFC107; /* Icônes jaunes */
+}
+
+.menu-burger a:hover {
+    color: #FFC107; /* Texte jaune au survol */
+    transform: scale(1.05);
+}
+
+/* Partie droite (photo de profil + annotation) */
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Image ronde */
+    border: 4px solid #FFC107; /* Contour jaune */
+    object-fit: cover; /* Ajustement */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: rotate(10deg) scale(1.1); /* Effet de rotation + zoom au survol */
+}
+
+.annotation {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Section "Qui suis-je" */
+.about-section {
+    background-color: #002b5c; /* Bleu foncé */
+    color: #ffffff; /* Texte blanc */
+    padding: 50px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.about-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700; /* Jaune */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-text p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8; /* Espace entre les lignes */
+    margin-bottom: 20px;
+}
+
+.about-text strong {
+    color: #ffd700; /* Accentuation jaune */
+}
+
+.about-text {
+    text-align: justify;
+}
+
+/* Section "Mes Services" */
+.services-section {
+    background-color: #001f33; /* Bleu très foncé */
+    padding: 50px 20px;
+    color: #fff; /* Texte blanc */
+    text-align: center;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #002b5c; /* Couleur légèrement différente pour contraste */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombrage plus intense */
+}
+
+.service-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #FFC107; /* Jaune */
+    margin-bottom: 10px;
+}
+
+.service-target {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Boutons interactifs */
+.menu-burger a, .profile-photo, .service-card {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .menu-burger li {
+        margin: 5px 0;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .service-title {
+        font-size: 1.3rem;
+    }
+
+    .service-target {
+        font-size: 0.9rem;
+    }
+}
+
+/* Section Projects */
+.projects-section {
+    background-color: #001f33; /* Bleu foncé */
+    color: #fff; /* Texte blanc */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden; /* Masquer les parties hors du cadre */
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animation fluide */
+}
+
+.project {
+    min-width: 100%; /* Afficher un projet à la fois */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-info {
+    background-color: rgba(0, 31, 51, 0.9); /* Fond bleu foncé semi-transparent */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: -50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #FFC107; /* Jaune */
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Boutons du carousel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #001f33; /* Bleu foncé */
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background-color: #FFC107; /* Jaune au survol */
+    color: #001f33;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Indicateurs */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #FFC107; /* Jaune pour l'indicateur actif */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-image {
+        height: 200px; /* Réduction de la hauteur sur mobile */
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+
+/* Footer Section */
+.footer-section {
+    background-color: #001f33; /* Bleu foncé */
+    color: #ffffff; /* Texte blanc */
+    padding: 40px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+.footer-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #FFC107; /* Jaune */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-section, .services-qualities {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin: 10px 0;
+}
+
+.contact-link {
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-link i {
+    font-size: 1.5rem;
+    color: #FFC107; /* Jaune pour les icônes */
+}
+
+.contact-link:hover {
+    color: #FFC107; /* Jaune au survol */
+    transform: scale(1.05);
+}
+
+/* Qualities Section */
+.qualities-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quality-card {
+    background-color: #002b5c; /* Bleu légèrement différent */
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid #ffffff;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #bdbdbd; /* Gris clair */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .qualities-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-link {
+        font-size: 1rem;
+    }
+}
+
